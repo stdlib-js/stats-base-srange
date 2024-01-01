@@ -43,30 +43,14 @@ The [**range**][range] is defined as the difference between the maximum and mini
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/stats-base-srange
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var srange = require( '@stdlib/stats-base-srange' );
+import srange from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-srange@esm/index.mjs';
 ```
 
 #### srange( N, x, stride )
@@ -74,7 +58,7 @@ var srange = require( '@stdlib/stats-base-srange' );
 Computes the [range][range] of a single-precision floating-point strided array `x`.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
 
 var x = new Float32Array( [ 1.0, -2.0, 2.0 ] );
 var N = x.length;
@@ -92,8 +76,8 @@ The function has the following parameters:
 The `N` and `stride` parameters determine which elements in `x` are accessed at runtime. For example, to compute the [range][range] of every other element in `x`,
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
 
 var x = new Float32Array( [ 1.0, 2.0, 2.0, -7.0, -2.0, 3.0, 4.0, 2.0 ] );
 var N = floor( x.length / 2 );
@@ -107,8 +91,8 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
 
 var x0 = new Float32Array( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ] );
 var x1 = new Float32Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
@@ -124,7 +108,7 @@ var v = srange( N, x1, 2 );
 Computes the [range][range] of a single-precision floating-point strided array using alternative indexing semantics.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
 
 var x = new Float32Array( [ 1.0, -2.0, 2.0 ] );
 var N = x.length;
@@ -140,8 +124,8 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the `offset` parameter supports indexing semantics based on a starting index. For example, to calculate the [range][range] for every other value in `x` starting from the second value
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
 
 var x = new Float32Array( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ] );
 var N = floor( x.length / 2 );
@@ -170,11 +154,16 @@ var v = srange.ndarray( N, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var randu = require( '@stdlib/random-base-randu' );
-var round = require( '@stdlib/math-base-special-round' );
-var Float32Array = require( '@stdlib/array-float32' );
-var srange = require( '@stdlib/stats-base-srange' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="module">
+
+import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
+import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+import srange from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-srange@esm/index.mjs';
 
 var x;
 var i;
@@ -187,6 +176,10 @@ console.log( x );
 
 var v = srange( x.length, x, 1 );
 console.log( v );
+
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -220,7 +213,7 @@ console.log( v );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -282,21 +275,21 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [range]: https://en.wikipedia.org/wiki/Range_%28statistics%29
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/esm
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 <!-- <related-links> -->
 
-[@stdlib/stats/base/drange]: https://github.com/stdlib-js/stats-base-drange
+[@stdlib/stats/base/drange]: https://github.com/stdlib-js/stats-base-drange/tree/esm
 
-[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax
+[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax/tree/esm
 
-[@stdlib/stats/base/smin]: https://github.com/stdlib-js/stats-base-smin
+[@stdlib/stats/base/smin]: https://github.com/stdlib-js/stats-base-smin/tree/esm
 
-[@stdlib/stats/base/snanrange]: https://github.com/stdlib-js/stats-base-snanrange
+[@stdlib/stats/base/snanrange]: https://github.com/stdlib-js/stats-base-snanrange/tree/esm
 
-[@stdlib/stats/base/range]: https://github.com/stdlib-js/stats-base-range
+[@stdlib/stats/base/range]: https://github.com/stdlib-js/stats-base-range/tree/esm
 
 <!-- </related-links> -->
 
